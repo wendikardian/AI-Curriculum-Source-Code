@@ -1,3 +1,4 @@
+from random import random
 import numpy as np
 
 # Initialization the numpy array 1d, 2d, or 3d
@@ -82,6 +83,118 @@ print(data3D)
 
 # It will caused an error
 # data3D[0,0, :] = [200, 300, 999]
+
+
+# Initialization difference types of numpy arrays
+# All 0s Matrix
+zeros1 = np.zeros(5)
+zeros2 = np.zeros((2,4))
+zeros3 = np.zeros((3,4,5))
+
+# print(zeros3)
+
+# All 1s matrix
+
+# Search data type on the numpy
+dataOnes = np.ones((5,2,3), dtype='int32')
+print(dataOnes)
+
+data3D = np.array([[[10, 20], [30, 40]], [[50,60], [70,80]]])
+
+# Copy a data from numpy
+# Copy data3D variable to copyData3D and fill it with number 4
+copyData3d = np.full_like(data3D, 4)
+print(copyData3d)
+
+
+# Create a random decimal numbers
+randomDecimals = np.random.rand(4, 2)
+randomDecimals2 = np.random.rand(4, 2,3)
+print(randomDecimals)
+print(randomDecimals2)
+
+
+# Create a random integer value
+randomInteger1 = np.random.randint(4, 7, size=(3,3))
+# 7 means it the max value and 4 is minimum value
+print(randomInteger1)
+
+
+# Create an identity matriks
+identityMatrix = np.identity(3)
+print(identityMatrix)
+
+# Create an repeatable numpy array
+# First create 2D np array 
+arr1 = np.array([[1,2,3]])
+repeatArr1 = np.repeat(arr1, 3, axis = 0)
+print(repeatArr1)
+
+
+# Challenge to create a matrix with full of number 1
+
+# Step 1. create an array with full of number 1 with matrix 5 x 5
+output = np.ones((5,5))
+print(output)
+
+# Step 2. create an array with zeros with matrix 3 x 3
+zerosArray = np.zeros((3,3))
+print(zerosArray)
+
+# Step 3. chang value from the middle matrix of zeros array with another number example 5
+zerosArray[1,1] = 5
+print(zerosArray)
+
+# Step 4. Change the output with np.ones to zeros array
+# output[1:4, 1:4] = zerosArray
+# or
+output[1:-1, 1:-1] = zerosArray
+
+# -1 means is the last element of the array
+
+print(output)
+
+
+# BE CAREFUL WHEN COPYING AN ARRAYS
+first = np.array([1,2,3])
+second = first
+# second[0] = 100
+
+# When second is change, it also change the first ... so the first array is changing even tho the value that means to be changed is the array second
+print(second)
+print(first)
+# Two above have the same result
+
+# To prevent that we can use copy() method
+
+second = first.copy()
+second[0] = 100
+print(second)
+print(first)
+
+
+# The Mathematics of NUMPY ----------------------------------------------------------------
+first = np.array([1,2,3,4,5,6,7])
+first += 2;
+first *= 2;
+# So other operator did the same thing
+print(first)
+
+second = np.array([-1,-2,-3,-4,-5,-6,-7])
+first += second;
+print(first)
+
+# Create a power of 2 of each arrays
+third = np.array([10,11,12,13,14])
+third **=2;
+print(third)
+
+# Take the sin of the value array
+print(np.sin(third))
+
+
+
+
 
 # Create empty and full numpy array
 # emptyArray = np.empty([3,4], dtype=int)
